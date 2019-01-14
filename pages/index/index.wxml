@@ -1,13 +1,39 @@
 <!--index.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
+<view class="index_home">
+  <view class="index_head">
+    <!-- 选择公司 -->
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{arr}}">
+      <view class="index_head_picker">{{indexs}}</view>
+    </picker>
+    <!-- 选择设备类型 -->
+    <picker bindchange="bindPickerChangeType" value="{{typeIndex}}" range="{{typeArr}}">
+      <view class="index_head_picker_type">{{typeIndexs}}</view>
+    </picker>
+    <!-- 选择时间 -->
+    <picker bindtap='bindPickerChangeTimeMe' bindchange="bindPickerChangeTime" value="{{timeIndex}}" range="{{timeArr}}">
+      <view class="index_head_picker_time">{{timeIndexs}}</view>
+    </picker>
+    <!-- <button class="index_head_btn" bindtap='indexHeadBtnMe'>查询</button> -->
+    <view class="clear"></view>
   </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+  <view class="index_headTime">数据时间：{{headTime}}</view>
+  <view class="index_header"></view>
+  <view class="index_body">
+    <view class="index_body_list" data-value="{{meta[index]}}" data-rank="{{index + 1}}" bindtap='indexBodyListMe' wx:for="{{meta}}" wx:for-item="list">
+      <view class="index_body_lista">{{index + 1}}</view>
+      <view class="index_body_listb index_body_listba" wx:if="{{list.devtypecode=='Bending'}}">{{list.devtypename}}</view>
+      <view class="index_body_listb index_body_listbb" wx:if="{{list.devtypecode=='Punching'}}">{{list.devtypename}}</view>
+      <view class="index_body_listb index_body_listbc" wx:if="{{list.devtypecode=='welding-robot'}}">{{list.devtypename}}</view>
+      <view class="index_body_listb index_body_listbd" wx:if="{{list.devtypecode=='welding'}}">{{list.devtypename}}</view>
+      <view class="index_body_listb index_body_listbe" wx:if="{{list.devtypecode=='spot-welder'}}">{{list.devtypename}}</view>
+      <!-- <view class="index_body_listb" wx:if="{{list.devtypename.length == 2}}">{{list.devtypename}}</view>
+      <view class="index_body_listb index_body_listbImportant" wx:else>{{list.devtypename}}</view> -->
+      <view class="index_body_listc">{{list.devname}}</view>
+      <view class="index_body_liste index_body_listea" wx:if="{{list.companyid == 'zjjf'}}">{{list.companyname}}</view>
+      <view class="index_body_liste index_body_listeb" wx:else>{{list.companyname}}</view>
+      <view class="index_body_listd" wx:if="{{list.activation < list.cropmobility}}" style="color: red;">{{list.activation}}%</view>
+      <view class="index_body_listd" wx:else style="color: green;">{{list.cropmobility}}</view>
+      <view class="clear"></view>
+    </view>
   </view>
 </view>

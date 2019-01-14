@@ -1,0 +1,46 @@
+<!--pages/last_30_days_detail/last_30_days_detail.wxml-->
+<view class="last_detail_home">
+  <view class="last_detail_head">
+    <view class="last_detail_head_left">{{meta.devname}}</view>
+    <view class="last_detail_head_right">
+      <text decode="{{true}}">组长：{{meta.headman}}&nbsp;&nbsp;&nbsp;&nbsp;经理：{{meta.manager}}</text>
+    </view>
+    <view class="clear"></view>
+  </view>
+  <view class="last_detail_body">
+    <view class="last_detail_body_head">近30天：</view>
+    <view class="last_detail_body_body">总产出：{{meta.total}}</view>
+    <view class="last_detail_body_left">停机：{{meta.stop}}</view>
+    <view class="last_detail_body_right">开机：{{meta.start}}</view>
+    <view class="clear"></view>
+  </view>
+  <view class="last_detail_foot">
+    <view class="last_detail_foot_table">
+      <view class="last_detail_foot_table_head">
+        <view class="last_detail_foot_table_head_list">日</view>
+        <view class="last_detail_foot_table_head_list">一</view>
+        <view class="last_detail_foot_table_head_list">二</view>
+        <view class="last_detail_foot_table_head_list">三</view>
+        <view class="last_detail_foot_table_head_list">四</view>
+        <view class="last_detail_foot_table_head_list">五</view>
+        <view class="last_detail_foot_table_head_list">六</view>
+        <view class="clear"></view>
+      </view>
+      <view class="last_detail_foot_table_body">
+        <view class="last_detail_foot_table_body_list" wx:for="{{last30Array}}" wx:for-item="list">
+          <view class="last_detail_foot_table_body_list_box" wx:if="{{list.value == 1}}" style="background-color: rgb(58, 188, 64)">
+            <view class="last_detail_foot_table_body_list_top">{{list.month}}</view>
+            <view class="last_detail_foot_table_body_list_bottom">{{list.date}}</view>
+            <view class="last_detail_foot_table_body_list_split"></view>
+          </view>
+          <view class="last_detail_foot_table_body_list_box" wx:if="{{list.value === 0}}" style="background-color: rgb(250, 84, 84);">
+            <view class="last_detail_foot_table_body_list_top">{{list.month}}</view>
+            <view class="last_detail_foot_table_body_list_bottom">{{list.date}}</view>
+            <view class="last_detail_foot_table_body_list_split"></view>
+          </view>
+        </view>
+        <view class="clear"></view>
+      </view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,29 @@
+<view class="record_home">
+  <view class="record_head">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{arr}}">
+      <view class="index_head_picker">{{indexs}}</view>
+    </picker>
+    <!-- 选择设备类型 -->
+    <picker bindchange="bindPickerChangeType" value="{{typeIndex}}" range="{{typeArr}}">
+      <view class="index_head_picker_type">{{typeIndexs}}</view>
+    </picker>
+    <button class="index_head_btn" bindtap='indexHeadBtnMe'>刷新</button>
+  </view>
+  <view class="record_heads"></view>
+  <view class="record_body">
+    <view class="record_body_list">
+      <view class="record_body_list_item">设备编号</view>
+      <view class="record_body_list_item">设备名称</view>
+      <view class="record_body_list_item">今日总计</view>
+      <view class="record_body_list_item">标准</view>
+      <view class="clear"></view>
+    </view>
+    <view class="record_body_list" wx:for="{{meta}}" wx:for-item="list">
+      <view class="record_body_list_item">{{list.devcode}}</view>
+      <view class="record_body_list_item">{{list.devname}}</view>
+      <view class="record_body_list_item">{{list.total}}</view>
+      <view class="record_body_list_item">{{list.standard}}/8小时</view>
+      <view class="clear"></view>
+    </view>
+  </view>
+</view>

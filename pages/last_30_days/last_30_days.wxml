@@ -1,0 +1,27 @@
+<view class="last_home">
+  <view class="last_head">
+    <picker bindchange="bindPickerChange" value="{{index}}" range="{{arr}}">
+      <view class="index_head_picker">{{indexs}}</view>
+    </picker>
+    <!-- 选择设备类型 -->
+    <picker bindchange="bindPickerChangeType" value="{{typeIndex}}" range="{{typeArr}}">
+      <view class="index_head_picker_type">{{typeIndexs}}</view>
+    </picker>
+    <!-- <button class="index_head_btn" bindtap='indexHeadBtnMe'>查询</button> -->
+  </view>
+  <view class="last_heads"></view>
+  <view class="last_body">
+    <view class="last_body_list" bindtap='listBodyListMe' data-value="{{list.devcode}}" wx:for="{{meta}}" wx:for-item="list">
+      <view class="last_body_list_left">
+        <view class="last_body_list_left_son"></view>
+        <text>{{list.devname}}</text>
+      </view>
+      <view class="last_body_list_right">
+        <view class="last_body_list_right_son" wx:if="{{list.companyid == 'dgjf'}}" style="background-color: rgb(243, 149, 24)">{{list.companyname}}</view>
+        <view class="last_body_list_right_son" wx:else style="background-color: rgb(62, 119, 180)">{{list.companyname}}</view>
+      </view>
+      <view class="last_body_list_center">{{list.text}}</view>
+      <view class="clear"></view>
+    </view>
+  </view>
+</view>

@@ -1,12 +1,41 @@
 {
   "pages":[
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/index_detail/index_detail",
+    "pages/record/record",
+    "pages/last_30_days/last_30_days",
+    "pages/last_30_days_detail/last_30_days_detail"
   ],
   "window":{
     "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle":"black"
+    "navigationBarBackgroundColor": "#0D6FB8",
+    "navigationBarTitleText": "鸿丰集团稼动率系统",
+    "navigationBarTextStyle":"#ffffff"
+  },
+  "tabBar": {
+    "color": "#303030",
+    "selectedColor": "#0C64A8",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "#e5e5e5",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/pm.png",
+        "selectedIconPath": "image/pma.png",
+        "text": "排名"
+      },
+      {
+        "pagePath": "pages/record/record",
+        "iconPath": "image/jl.png",
+        "selectedIconPath": "image/jla.png",
+        "text": "记录"
+      },
+      {
+        "pagePath": "pages/last_30_days/last_30_days",
+        "iconPath": "image/zl.png",
+        "selectedIconPath": "image/zla.png",
+        "text": "设备"
+      }
+    ]
   }
 }

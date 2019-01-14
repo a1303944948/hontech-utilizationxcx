@@ -1,0 +1,59 @@
+<view class="index_detail_home">
+  <view class="index_detail_head">
+    <view class="index_detail_head_left">{{meta.devname}}</view>
+    <view class="index_detail_head_right"><text decode="{{true}}">组长：{{meta.headman}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经理：{{meta.manager}}</text></view>
+    <view class="clear"></view>
+  </view>
+  <view class="index_detail_body">
+    <view class="index_detail_body_head">
+      <text decode="{{true}}" wx:if="{{meta.standard}} != '0'">第{{rank}}名&nbsp;&nbsp;实际：{{meta.total}}&nbsp;&nbsp;标准：{{meta.standard}}</text>
+      <text decode="{{true}}" wx:else>第{{rank}}名&nbsp;&nbsp;实际：{{meta.total}}&nbsp;&nbsp;标准：设备未使用</text>
+    </view>
+    <view class="index_detail_body_table">
+      <view class="index_detail_body_table_left">{{meta.activation}}%</view>
+      <view class="index_detail_body_table_right">
+        <view class="index_detail_body_table_right_list">
+          <view class="index_detail_body_table_right_list_item index_detail_body_table_right_list_itema"></view>
+          <view class="index_detail_body_table_right_list_item index_detail_body_table_right_list_itemb">实际</view>
+          <view class="index_detail_body_table_right_list_item index_detail_body_table_right_list_itemc">开始</view>
+          <view class="index_detail_body_table_right_list_item index_detail_body_table_right_list_itemd">结束</view>
+          <view class="index_detail_body_table_right_list_item index_detail_body_table_right_list_iteme">稼动率</view>
+          <view class="clear"></view>
+        </view>
+        <view class="index_detail_body_table_right_list" wx:for="{{dateArr}}" wx:for-item="list">
+          <view class="index_detail_body_table_right_list_item index_detail_body_table_right_list_itema">{{list.name}}</view>
+          <view class="index_detail_body_table_right_list_item index_detail_body_table_right_list_itemb">{{list.total}}</view>
+          <view class="index_detail_body_table_right_list_item index_detail_body_table_right_list_itemc">{{list.startTime}}</view>
+          <view class="index_detail_body_table_right_list_item index_detail_body_table_right_list_itemd">{{list.endTime}}</view>
+          <view class="index_detail_body_table_right_list_item index_detail_body_table_right_list_iteme">{{list.text}}%</view>
+          <view class="clear"></view>
+        </view>
+      </view>
+      <view class="clear"></view>
+    </view>
+    <view class="index_detail_body_foot">{{timeInterval}}</view>
+  </view>
+  <view class="index_footer">
+    <view class="index_footer_top">最近七天：</view>
+    <view class="index_footer_head">
+      <view class="index_footer_head_item" wx:for="{{sevenData}}" wx:for-item="list">
+        <view class="index_footer_head_item_top" style="margin-top:{{ 200-list.text * 2}}rpx;">{{list.text}}%</view>
+        <view class="index_footer_head_item_son" wx:if="{{list.text < list.normal}}" style="height: {{list.text * 2}}rpx; background-color: red;"></view>
+        <view class="index_footer_head_item_son" wx:else style="height: {{list.text * 2}}rpx; background-color: green;"></view>
+      </view>
+      <view class="clear"></view>
+    </view>
+    <view class="index_footer_heads">
+      <view class="index_footer_heads_item" wx:for="{{sevenData}}"></view>
+      <view class="clear"></view>
+    </view>
+    <view class="index_footer_footOne">
+      <view class="index_footer_footOne_item" wx:for="{{sevenData}}" wx:for-item="list">{{list.date}}</view>
+      <view class="clear"></view>
+    </view>
+    <view class="index_footer_footTwo">
+      <view class="index_footer_footTwo_item" wx:for="{{sevenData}}" wx:for-item="list">{{list.week}}</view>
+      <view class="clear"></view>
+    </view>
+  </view>
+</view>

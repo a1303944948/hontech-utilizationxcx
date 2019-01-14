@@ -1,39 +1,50 @@
 //app.js
 App({
-  onLaunch: function () {
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+  rankObj: [
+    {machName: '折弯001',machId:'1',owner: 'zjjf',ownerText: '浙江嘉丰',text: '90%',normal: '80%',typeId: 'Bending',typeName: '折弯'},
+    {machName: '冲压004',machId:'2',owner: 'zjjf',ownerText: '浙江嘉丰',text: '89%',normal: '80%',typeId: 'Punching',typeName: '冲压'},
+    {machName: '手工焊接003',machId:'3',owner: 'dgjf',ownerText: '东莞嘉丰',text: '79%',normal: '80%',typeId: 'welding-robot',typeName: '机器焊接'},
+    {machName: '机器焊接002',machId:'4',owner: 'dgjf',ownerText: '东莞嘉丰',text: '78%',normal: '80%',typeId: 'welding',typeName: '手工焊接'},
+    {machName: '点焊015',machId:'5',owner: 'zjjf',ownerText: '浙江嘉丰',text: '78%',normal: '80%',typeId: 'spot-welder',typeName: '点焊'},
+    {machName: '折弯016',machId:'6',owner: 'dgjf',ownerText: '东莞嘉丰',text: '76%',normal: '70%',typeId: 'Bending',typeName: '折弯'},
+    {machName: '折弯017',machId:'7',owner: 'zjjf',ownerText: '浙江嘉丰',text: '70%',normal: '70%',typeId: 'Bending',typeName: '折弯'},
+    {machName: '折弯018',machId:'8',owner: 'dgjf',ownerText: '东莞嘉丰',text: '66%',normal: '70%',typeId: 'Bending',typeName: '折弯'},
+    {machName: '折弯019',machId:'9',owner: 'dgjf',ownerText: '东莞嘉丰',text: '50%',normal: '80%',typeId: 'Bending',typeName: '折弯'},
+  ],
+  rankViewObj: {machId: '1',machName: '折床001',group: '邢天铭',manager: '黄勤飞',rank:'1',total: '7200',normal: '8000',text: '90%',arr: [{name: '上午',total: '2160',startTime: '7:40',endTime: '11:50',text: '30%'},{name: '下午',total: '2160',startTime: '13:00',endTime: '17:10',text: '30%'},{name: '晚上',total: '2160',startTime: '17:40',endTime: '20:40',text: '30%'},{name: '晚上',total: '2160',startTime: '17:40',endTime: '20:40',text: '30%'},{name: '晚上',total: '2160',startTime: '17:40',endTime: '20:40',text: '30%'},{name: '晚上',total: '2160',startTime: '17:40',endTime: '20:40',text: '30%'},{name: '晚上',total: '2160',startTime: '17:40',endTime: '20:40',text: '30%'},{name: '晚上',total: '2160',startTime: '17:40',endTime: '20:40',text: '30%'},{name: '晚上',total: '2160',startTime: '17:40',endTime: '20:40',text: '30%'},{name: '晚上',total: '2160',startTime: '17:40',endTime: '20:40',text: '30%'},{name: '晚上',total: '2160',startTime: '17:40',endTime: '20:40',text: '30%'},{name: '晚上',total: '2160',startTime: '17:40',endTime: '20:40',text: '30%'},{name: '晚上',total: '2160',startTime: '17:40',endTime: '20:40',text: '30%'}],time: '2018/11/21',lastSevenDays: [{text: '50%',normal: '80%',date: '11/15',week: '周四'},{text: '80%',normal: '80%',date: '11/16',week: '周五'},{text: '70%',normal: '80%',date: '11/17',week: '周六'},{text: '40%',normal: '80%',date: '11/18',week: '周日'},{text: '20%',normal: '80%',date: '11/19',week: '周一'},{text: '100%',normal: '80%',date: '11/20',week: '周二'},{text: '90%',normal: '80%',date: '11/21',week: '周三'}]},
+  recordObj: [
+    {machId: '1',machName: '折床001',total: '5600',normal: '8000'+'/8小时'},
+    {machId: '2',machName: '折床002',total: '2300',normal: '8000'+'/8小时'},
+    {machId: '3',machName: '折床003',total: '4500',normal: '8000'+'/8小时'},
+    {machId: '4',machName: '折床004',total: '7200',normal: '8000'+'/8小时'},
+    {machId: '5',machName: '折床005',total: '6500',normal: '8000'+'/8小时'},
+    {machId: '6',machName: '折床006',total: '4800',normal: '8000'+'/8小时'},
+    {machId: '7',machName: '折床007',total: '5500',normal: '8000'+'/8小时'},
+    {machId: '8',machName: '折床008',total: '5700',normal: '8000'+'/8小时'},
+    {machId: '9',machName: '折床009',total: '5600',normal: '8000'+'/8小时'},
+    {machId: '10',machName: '冲床001',total: '400',normal: '480'+'/8小时'},
+    {machId: '11',machName: '冲床002',total: '360',normal: '480'+'/8小时'},
+    {machId: '12',machName: '折床005',total: '6500',normal: '8000'+'/8小时'},
+    {machId: '13',machName: '折床006',total: '4800',normal: '8000'+'/8小时'},
+    {machId: '14',machName: '折床007',total: '5500',normal: '8000'+'/8小时'},
+    {machId: '15',machName: '折床008',total: '5700',normal: '8000'+'/8小时'},
+    {machId: '16',machName: '折床009',total: '5600',normal: '8000'+'/8小时'},
+    {machId: '17',machName: '冲床001',total: '400',normal: '480'+'/8小时'},
+    {machId: '18',machName: '冲床002',total: '360',normal: '480'+'/8小时'},
+  ],
+  last30days: [
+    {machName: '折弯001',machId:'1',owner: 'zjjf',ownerText: '浙江嘉丰',text: '12',typeId: 'Bending',typeName: '折弯'},
+    {machName: '冲压004',machId:'2',owner: 'zjjf',ownerText: '浙江嘉丰',text: '11',typeId: 'Punching',typeName: '冲压'},
+    {machName: '手工焊接003',machId:'3',owner: 'dgjf',ownerText: '东莞嘉丰',text: '9',typeId: 'welding-robot',typeName: '机器焊接'},
+    {machName: '机器焊接002',machId:'4',owner: 'dgjf',ownerText: '东莞嘉丰',text: '8',typeId: 'welding',typeName: '手工焊接'},
+    {machName: '点焊015',machId:'5',owner: 'zjjf',ownerText: '浙江嘉丰',text: '8',typeId: 'spot-welder',typeName: '点焊'},
+    {machName: '折弯016',machId:'6',owner: 'dgjf',ownerText: '东莞嘉丰',text: '6',typeId: 'Bending',typeName: '折弯'},
+    {machName: '折弯017',machId:'7',owner: 'zjjf',ownerText: '浙江嘉丰',text: '6',typeId: 'Bending',typeName: '折弯'},
+    {machName: '折弯018',machId:'8',owner: 'dgjf',ownerText: '东莞嘉丰',text: '6',typeId: 'Bending',typeName: '折弯'},
+    {machName: '折弯019',machId:'9',owner: 'dgjf',ownerText: '东莞嘉丰',text: '5',typeId: 'Bending',typeName: '折弯'},
+  ],
+  last30daysView: {machId: '1',machName: '折床001',group: '邢天铭',manager: '黄勤飞',total: '35800',stop: '20',start: '10',dateArr: [1,0,1,1,1,0,1,1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,1,0,0,1,1,1,1,1]},
 
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
-  },
-  globalData: {
-    userInfo: null
-  }
+  URL: 'https://api.hontech-rdcenter.com:8033/jdl',
+  //URL: 'http://10.1.8.45:8080/bg-uc',
 })

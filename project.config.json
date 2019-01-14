@@ -12,8 +12,8 @@
 		"autoAudits": false
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.4.1",
-	"appid": "wx7e61b38780bd42dc",
+	"libVersion": "2.5.0",
+	"appid": "wx2e231c1c5ff5f7ea",
 	"projectname": "hontech-utilizationxcx",
 	"debugOptions": {
 		"hidedInDevtools": []

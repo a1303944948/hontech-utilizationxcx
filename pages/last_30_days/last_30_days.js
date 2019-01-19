@@ -19,8 +19,8 @@ function seach(that){
       if(msg.data.length != 0){
         msg.data.sort(compare("text"));
         //json数组排序
-        function compare(property) {
-          return function (a, b) {
+        function compare(property){
+          return function(a,b){
             var value1 = a[property];
             var value2 = b[property];
             return value2 - value1;
@@ -165,6 +165,7 @@ Page({
     wx.request({
       url: getApp().URL + '/activationType/getAllActivationType.json',
       method: 'POST',
+      async: false,
       success: function(msg){
         if(JSON.stringify(msg.data) != '{}'){
           that.data.typeArr.push('设备类型...');
@@ -189,20 +190,20 @@ Page({
     var date = new Date();
     function timeGetDate(num) {
       var timeGetDateS = new Date(date.getTime() - num * 86400000);
-      return timeGetDateS.getFullYear() + '-' + (timeGetDateS.getMonth() + 1) + '-' + (timeGetDateS.getDate());
+      return timeGetDateS.getFullYear() + '-' + (timeGetDateS.getMonth() + 1) + '-' + (timeGetDateS.getDate() - 1);
     }
     if(date.getHours() < 8) {
       if(date.getHours() == 7) {
         if(date.getMinutes() > 40) {
-          that.data.paramTime = timeGetDate(29) + ',' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + date.getDate();
+          that.data.paramTime = timeGetDate(29) + ',' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() - 1);
         }else{
-          that.data.paramTime = timeGetDate(30) + '-' + (date.getDate() - 1) + ',' + date.getFullYear() + '-' + (date.getMonth() + 1);
+          that.data.paramTime = timeGetDate(30) + ',' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() - 2);
         }
       }else{
-        that.data.paramTime = timeGetDate(30) + ',' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() - 1);
+        that.data.paramTime = timeGetDate(30) + ',' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() - 2);
       }
     }else{
-      that.data.paramTime = timeGetDate(29) + ',' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate());
+      that.data.paramTime = timeGetDate(29) + ',' + date.getFullYear() + '-' + (date.getMonth() + 1) + '-' + (date.getDate() - 1);
     }
     
     console.log(that.data.paramTime);

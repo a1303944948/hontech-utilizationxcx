@@ -55,6 +55,14 @@
   box-sizing: border-box;
   float: left;
 }
+.last_head_text{
+  font-size: 28rpx;
+  color: #999999;
+  position: absolute;
+  float: right;
+  right: 30rpx;
+  top: 26rpx;
+}
 .index_head_btn{
   width: 100rpx;
   height: 48rpx;

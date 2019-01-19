@@ -32,7 +32,7 @@
       <view class="index_body_liste index_body_listea" wx:if="{{list.companyid == 'zjjf'}}">{{list.companyname}}</view>
       <view class="index_body_liste index_body_listeb" wx:else>{{list.companyname}}</view>
       <view class="index_body_listd" wx:if="{{list.activation < list.cropmobility}}" style="color: red;">{{list.activation}}%</view>
-      <view class="index_body_listd" wx:else style="color: green;">{{list.cropmobility}}</view>
+      <view class="index_body_listd" wx:else style="color: green;">{{list.activation}}%</view>
       <view class="clear"></view>
     </view>
   </view>

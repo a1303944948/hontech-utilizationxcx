@@ -15,14 +15,15 @@
       <view class="record_body_list_item">设备编号</view>
       <view class="record_body_list_item">设备名称</view>
       <view class="record_body_list_item">今日总计</view>
-      <view class="record_body_list_item">标准</view>
+      <view class="record_body_list_item">标准(8小时)</view>
       <view class="clear"></view>
     </view>
     <view class="record_body_list" wx:for="{{meta}}" wx:for-item="list">
       <view class="record_body_list_item">{{list.devcode}}</view>
       <view class="record_body_list_item">{{list.devname}}</view>
       <view class="record_body_list_item">{{list.total}}</view>
-      <view class="record_body_list_item">{{list.standard}}/8小时</view>
+      <view class="record_body_list_item" wx:if="{{list.port == '1'}}">{{list.standard}}次</view>
+      <view class="record_body_list_item" wx:else>{{list.standard}}分</view>
       <view class="clear"></view>
     </view>
   </view>

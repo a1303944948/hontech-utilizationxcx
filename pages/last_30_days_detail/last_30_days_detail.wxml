@@ -9,7 +9,8 @@
   </view>
   <view class="last_detail_body">
     <view class="last_detail_body_head">近30天：</view>
-    <view class="last_detail_body_body">总产出：{{meta.total}}</view>
+    <view class="last_detail_body_body" wx:if="{{meta.port == '1'}}">总产出：{{meta.total}}次</view>
+    <view class="last_detail_body_body" wx:else>总产出：{{meta.total}}分</view>
     <view class="last_detail_body_left">停机：{{meta.stop}}</view>
     <view class="last_detail_body_right">开机：{{meta.start}}</view>
     <view class="clear"></view>

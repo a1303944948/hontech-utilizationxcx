@@ -12,20 +12,20 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function(options){
     var that = this; 
     var timeDate = new Date();
-    function timeGetDate(num) {
+    function timeGetDate(num){
       var timeGetDateS = new Date(timeDate.getTime() - num * 86400000);
       return timeGetDateS.getFullYear() + '-' + (timeGetDateS.getMonth() + 1) + '-' + (timeGetDateS.getDate());
     }
-    function timeGetDate(num) {
+    function timeGetDate(num){
       var timeGetDateS = new Date(timeDate.getTime() - num * 86400000);
       return timeGetDateS.getFullYear() + '-' + (timeGetDateS.getMonth() + 1) + '-' + (timeGetDateS.getDate());
     }
     //获取最近三十天数据
     function timeDateArray(num,array){
-      for(var i = 0; i < 30; i++){
+      for(var i = 29; i >= 0; i--){
         var timeObject = new Object();
         var timeGetDateS = new Date(timeDate.getTime() - (i + num) * 86400000);
         var timeNian = timeGetDateS.getFullYear();
@@ -34,10 +34,10 @@ Page({
         if(timeYue.length < 2){
           timeYue = '0' + timeYue;
         }
-        if (timeRi.length < 2) {
+        if(timeRi.length < 2){
           timeRi = '0' + timeRi;
         }
-        if(i == 0){
+        if(i == 29){
           for(var j = 0; j < timeGetDateS.getDay(); j++){
             var timeObjects = new Object();
             timeObjects.value = '';
@@ -68,9 +68,9 @@ Page({
     }
     var timeyesterday;
     var timeNum = 0;
-    if (timeDate.getHours() < 8) {
-      if (timeDate.getHours() == 7) {
-        if(timeDate.getMinutes() < 40) {
+    if(timeDate.getHours() < 8){
+      if(timeDate.getHours() == 7){
+        if(timeDate.getMinutes() < 40){
           timeNum = 2;
           timeyesterday = timeGetDate(2);
         }else{
@@ -116,7 +116,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onReady: function(){
 
   },
 

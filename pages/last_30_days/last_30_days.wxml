@@ -7,6 +7,7 @@
     <picker bindchange="bindPickerChangeType" value="{{typeIndex}}" range="{{typeArr}}">
       <view class="index_head_picker_type">{{typeIndexs}}</view>
     </picker>
+    <text class="last_head_text">近三十天停机排行</text>
     <!-- <button class="index_head_btn" bindtap='indexHeadBtnMe'>查询</button> -->
   </view>
   <view class="last_heads"></view>
@@ -20,7 +21,7 @@
         <view class="last_body_list_right_son" wx:if="{{list.companyid == 'dgjf'}}" style="background-color: rgb(243, 149, 24)">{{list.companyname}}</view>
         <view class="last_body_list_right_son" wx:else style="background-color: rgb(62, 119, 180)">{{list.companyname}}</view>
       </view>
-      <view class="last_body_list_center">{{list.text}}</view>
+      <view class="last_body_list_center">{{list.text}}天</view>
       <view class="clear"></view>
     </view>
   </view>

@@ -4,9 +4,11 @@
     <view class="index_detail_head_right"><text decode="{{true}}">组长：{{meta.headman}}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;经理：{{meta.manager}}</text></view>
     <view class="clear"></view>
   </view>
+  <view class="index_detail_group">所在部门：{{meta.deptname}}</view>
   <view class="index_detail_body">
     <view class="index_detail_body_head">
-      <text decode="{{true}}" wx:if="{{meta.standard}} != '0'">第{{rank}}名&nbsp;&nbsp;实际：{{meta.total}}&nbsp;&nbsp;标准：{{meta.standard}}</text>
+      <text decode="{{true}}" wx:if="{{meta.standard}} != '0'">第{{rank}}名&nbsp;&nbsp;实际：{{meta.total}}&nbsp;&nbsp;<text wx:if="{{meta.port == '1'}}">标准：{{meta.standard}}次</text><text wx:else>标准：{{meta.standard}}分</text>
+      </text>
       <text decode="{{true}}" wx:else>第{{rank}}名&nbsp;&nbsp;实际：{{meta.total}}&nbsp;&nbsp;标准：设备未使用</text>
     </view>
     <view class="index_detail_body_table">

@@ -96,7 +96,7 @@ Page({
 
   listBodyListMe(e){
     wx.navigateTo({
-      url: '../last_30_days_detail/last_30_days_detail?machId=' + e.target.dataset.value,
+      url: '../last_30_days_detail/last_30_days_detail?machId=' + e.currentTarget.dataset.value,
     })
   },
   /*indexHeadBtnMe(){

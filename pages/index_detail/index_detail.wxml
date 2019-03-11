@@ -39,9 +39,9 @@
     <view class="index_footer_top">最近七天：</view>
     <view class="index_footer_head">
       <view class="index_footer_head_item" wx:for="{{sevenData}}" wx:for-item="list">
-        <view class="index_footer_head_item_top" style="margin-top:{{ 200-list.text * 2}}rpx;">{{list.text}}%</view>
-        <view class="index_footer_head_item_son" wx:if="{{list.text < list.normal}}" style="height: {{list.text * 2}}rpx; background-color: red;"></view>
-        <view class="index_footer_head_item_son" wx:else style="height: {{list.text * 2}}rpx; background-color: green;"></view>
+        <view class="index_footer_head_item_top" style="margin-top:{{(200-list.text*2 < 0)?0:200-list.text*2}}rpx;">{{list.text}}%</view>
+        <view class="index_footer_head_item_son" wx:if="{{list.text < list.normal}}" style="height: {{list.text * 2}}rpx; max-height: 200rpx; background-color: red;"></view>
+        <view class="index_footer_head_item_son" wx:else style="height: {{list.text * 2}}rpx; max-height: 200rpx; background-color: green;"></view>
       </view>
       <view class="clear"></view>
     </view>

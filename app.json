@@ -1,16 +1,16 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/index_detail/index_detail",
     "pages/record/record",
     "pages/last_30_days/last_30_days",
     "pages/last_30_days_detail/last_30_days_detail"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#0D6FB8",
     "navigationBarTitleText": "鸿丰集团稼动率系统",
-    "navigationBarTextStyle":"#ffffff"
+    "navigationBarTextStyle": "#ffffff"
   },
   "tabBar": {
     "color": "#303030",
@@ -37,5 +37,6 @@
         "text": "设备"
       }
     ]
-  }
+  },
+  "sitemapLocation": "sitemap.json"
 }
